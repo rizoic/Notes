@@ -1,8 +1,8 @@
-## Diffbind Notes
+# Diffbind Notes
 
 This is a bioconductor package which can be used to find differentially bound sites for Chip Seq experiments. More details on [Bioconductor](https://bioconductor.org/packages/release/bioc/html/DiffBind.html)
 
-#### Diffbind Output Format
+### Diffbind Output Format
 Quoting from the [reference manual](https://bioconductor.org/packages/release/bioc/manuals/DiffBind/man/DiffBind.pdf)
 
 | Col Name | Description |
@@ -26,7 +26,7 @@ Called2 Number of samples in group 2 that identified this binding site as a peak
 
 If bCounts is TRUE, a column will be present for each sample in group 1, followed by each sample in group 2. The Sample ID will be used as the column header. This column contains the read counts for the sample.
 
-#### Details on bCounts
+### Details on bCounts
 
 *The normalized counts returned by dba.report()are the raw reads divided by the normalization factors, obtained by calling DESeq2::sizeFactors().*[Source](https://support.bioconductor.org/p/68134/#68168)
 
@@ -38,7 +38,7 @@ If bCounts is TRUE, a column will be present for each sample in group 1, followe
 
 So in summary it depends on if you used bFullLibrarySize=FALSE/TRUE. If you set that to be `true` then the full library sizes will be used for normalization and you will find one of sample to have integer counts indicating that sample had the least number of reads and it had a normalizaion denominatior of 1, If you set it to `false` then it will get the normalization factors per peak.
 
-#### Getting common peaks between replicates
+### Getting common peaks between replicates
 Ok you can get common peaks between replicates in different combinations using the plotVenn function in diffbind. This function will return a list which will have different dataframes like onlyA, notinA,inAll. You can use these combinations along with rbind(after subsetting to first 3 columns Chr,Start,End) to get a bed file for a required intersection
 
 ```R
@@ -52,7 +52,7 @@ df.merged <- rbind(df$notA[,c(1,2,3)], df$notB[,c(1,2,3)], df$notC[,c(1,2,3)], d
 write.table(df.merged, file = "Cond1_atleast_2_replicates.xls", sep = "\t", quote = FALSE, row.names = FALSE)
 ```
 
-#### Details on how the correlation is calculated
+### Details on how the correlation is calculated
 
 First, each peak set is read in separately. The scores are normalized to a 0-1 scale as follows:
 
