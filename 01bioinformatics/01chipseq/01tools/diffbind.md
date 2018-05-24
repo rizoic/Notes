@@ -52,4 +52,34 @@ df.merged <- rbind(df$notA[,c(1,2,3)], df$notB[,c(1,2,3)], df$notC[,c(1,2,3)], d
 write.table(df.merged, file = "Cond1_atleast_2_replicates.xls", sep = "\t", quote = FALSE, row.names = FALSE)
 ```
 
+#### Details on how the correlation is calculated
+
+First, each peak set is read in separately. The scores are normalized to a 0-1 scale as follows:
+
+>scores <- scores/max(scores)
+(if LowerBetter was specified, this is followed by scores <- 1-scores.)
+
+Second, all the peaksets are merged. Any overlapping peak regions are extended to encompass the contiguous peaks, so peaks are consider to overlap if at least one base position overlaps.
+
+Third, each interval in the merged peakset is assigned a score for each sample. If a sample had one peak called that overlaps the merged interval, it receives the (normalized) score for that peak. If a sample has more than one peak called that overlaps a merged interval, it is assigned the maximum value of the overlapping peak scores for that sample. If a sample has no peaks that overlap a merged interval, it is assigned a score of -1.
+
+At this point, there is a binding matrix with rows corresponding to the merged intervals, and columns corresponding to each sample. Each column then is a vector representing the peak scores for that sample (with -1 scores for all the regions that were not identified as peaks for that sample).
+
+To make the correlation heatmap (by calling dba.plotHeatmap() or just plot(), which maps to the same thing),  the log2() values of the scores are obtained, then a correlation value is computed for each pair of score vectors. This is a **pearson** correlation by default, although it is changeable using the distMethod parameter to dba.plotHeatmap().
+
+The whole matrix of correlations is returned silently by dba.plotHeatmap(), so if you assign this to a value, you can see the correlation values. [Source](https://support.bioconductor.org/p/63034/#63036)
+
+The correlation heatmaps are generated using the correlations between the binding patterns for each sample.
+
+After the peaks are initially loaded, using dba(), the peaks are merged and the scores (normalized to 0..1) are retained. If a peak was not called for a sample, it gets a score of -1. So each sample has a vector of scores for each peak, which may contain -1 scores for peaks not associated with that sample.
+
+After a call to dba.count(), the reads are counted in every sample for every peak, and a score computed. The default score is a normalized read count (after subtracting control counts). So each sample has a vector of scores for each consensus peak. Generally there are at least some counts for each peak, so the scores are more uniform. I find that if there is a big difference in clustering between the peak-based and read-based correlation heatmaps, this may be due to the noisy nature of how peaks are called or left out for individual samples. The count-based scores generally exhibit higher correlations.
+
+After a call to dba.analyze(), a correlation heatmap is plotted using only differentially bound peaks. As these peaks differentiate between two conditions, one would expect to see the samples clustering into those two conditions (although this will not necessarily be the case). [Source](https://support.bioconductor.org/p/66901/#66917)
+
+So here is the procedure that is followed:-
+
+1. You load you peakset. Lets assume this if from MACS. Macs will assign a p-value to each peak. This p-value is going to be considered as the score after being normalized to a scale of 0-1 by dividing the scores in each peakset by the maximum score. If a peak is not called for a sample it is assigned a score of -1. 
+2. This creates a matrix with samples in the columns and merged peaks in the rows. This matrix is used to calculated a pairwise peason correlation and that is what is plotted in the heatmap.
+
 
