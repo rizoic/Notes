@@ -38,4 +38,18 @@ If bCounts is TRUE, a column will be present for each sample in group 1, followe
 
 So in summary it depends on if you used bFullLibrarySize=FALSE/TRUE. If you set that to be `true` then the full library sizes will be used for normalization and you will find one of sample to have integer counts indicating that sample had the least number of reads and it had a normalizaion denominatior of 1, If you set it to `false` then it will get the normalization factors per peak.
 
+#### Getting common peaks between replicates
+Ok you can get common peaks between replicates in different combinations using the plotVenn function in diffbind. This function will return a list which will have different dataframes like onlyA, notinA,inAll. You can use these combinations along with rbind(after subsetting to first 3 columns Chr,Start,End) to get a bed file for a required intersection
+
+```R
+# Get overlap between all members of Condition1
+df <- dba.plotVenn(diff.dba, diff.dba$masks$Condition1, DataType = DBA_DATA_FRAME)
+
+# Get merged df for something like called in atleast 2 of 3 replicates
+df.merged <- rbind(df$notA[,c(1,2,3)], df$notB[,c(1,2,3)], df$notC[,c(1,2,3)], df$inAll[,c(1,2,3)])
+
+# Save file
+write.table(final_df, file = "Cond1_atleast_2_replicates.xls", sep = "\t", quote = FALSE, row.names = FALSE)
+```
+
 
