@@ -49,7 +49,7 @@ df <- dba.plotVenn(diff.dba, diff.dba$masks$Condition1, DataType = DBA_DATA_FRAM
 df.merged <- rbind(df$notA[,c(1,2,3)], df$notB[,c(1,2,3)], df$notC[,c(1,2,3)], df$inAll[,c(1,2,3)])
 
 # Save file
-write.table(final_df, file = "Cond1_atleast_2_replicates.xls", sep = "\t", quote = FALSE, row.names = FALSE)
+write.table(df.merged, file = "Cond1_atleast_2_replicates.xls", sep = "\t", quote = FALSE, row.names = FALSE)
 ```
 
 
