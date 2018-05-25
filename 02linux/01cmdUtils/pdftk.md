@@ -7,7 +7,7 @@ A tool for manipulating pdf files from the command line. [Man page](http://manpa
 Rotate and save a copy of the roatated pdf file
 
 ```bash
-pdftk input.pdf cat 1-endsouth output output.pdf
+   pdftk input.pdf cat 1-endsouth output output.pdf
 #        \_______/     \___/\___/        \________/
 #        input file    range  |          output file
 #                           direction
