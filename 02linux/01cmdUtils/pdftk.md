@@ -1,6 +1,6 @@
 ### PDFTK
 
-A tool for manipulating pdf files from the command line. Man page at [Source](http://manpages.ubuntu.com/manpages/xenial/en/man1/pdftk.1.html)
+A tool for manipulating pdf files from the command line. [Man page](http://manpages.ubuntu.com/manpages/xenial/en/man1/pdftk.1.html)
 
 #### Rotating pdf files
 
