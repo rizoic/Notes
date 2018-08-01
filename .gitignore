@@ -1,0 +1,6 @@
+# Pycharm related files
+.idea/
+
+# Adding handling for emacs
+*~
+*#*
