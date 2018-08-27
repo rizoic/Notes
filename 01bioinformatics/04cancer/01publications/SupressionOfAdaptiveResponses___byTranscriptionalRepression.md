@@ -18,7 +18,7 @@
 
 ## Glossary
 
-1. **Tumor Suppression by Kinase Inhibitors**: Kinases are enzymes that can add a phosphate group to proteins as a post translational modification. In cancer abnormal activation of protein phosphorylation is frequently seen. A lot of kinases are thus targeted to control for cancer growth.[Source](https://www-jci-org.libproxy1.nus.edu.sg/articles/view/76094)
+1. **Tumor Suppression by Kinase Inhibitors**: Kinases are enzymes that can add a phosphate group to proteins as a post translational modification. In cancer abnormal activation of protein phosphorylation is frequently seen. A lot of kinases are thus targeted to control for cancer growth.[Source](https://www.jci.org/articles/view/76094)
 
 2. **In Vivo**: In living
 
