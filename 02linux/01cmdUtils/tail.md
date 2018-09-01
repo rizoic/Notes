@@ -1,9 +1,10 @@
-### Tail Notes
+# Tail
 
 Tail is a command line utility to display lines from the end of a files
 
 
-#### Using tail to remove the first line of a file
+## Using tail to remove the first line of a file
+
 ```bash
 tail -n +2 filename
 ```

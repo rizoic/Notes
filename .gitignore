@@ -4,4 +4,8 @@
 # Adding handling for emacs
 *~
 *#*
+
+# R/Rstudio related files
 .Rproj.user
+.RData
+.Rhistory

@@ -1,0 +1,82 @@
+---
+title: "E2E_Workflow_For_DGE_using_Affy_arrays"
+author: "rizoic"
+date: "29 August 2018"
+output: html_document
+---
+
+```{r}
+suppressPackageStartupMessages(library(maEndToEnd))
+```
+```{r, loaddata}
+# Create dir to store downloaded raw data
+raw_data_dir <- tempdir()
+if (!dir.exists(raw_data_dir)){
+  dir.create(raw_data_dir)
+}
+
+# Download raw data from arrayexpress
+anno_AE <- getAE(accession = "E-MTAB-2967", path = raw_data_dir, type = "raw")
+
+# Set location for SDRF and read it in
+sdrf_location <- file.path(raw_data_dir, "E-MTAB-2967.sdrf.txt")
+SDRF <- read.delim(sdrf_location)
+rownames(SDRF) <- SDRF$Array.Data.File
+# We can directly use this SDRF data in the read.celfiles function
+SDRF <- AnnotatedDataFrame(SDRF)
+
+# Now lets read in the cel files
+raw_data <- oligo::read.celfiles(filenames = file.path(raw_data_dir, SDRF$Array.Data.File), phenoData = SDRF)
+stopifnot(validObject(raw_data))
+
+# Set subset the pdata as it has a lot of columns we dont need
+Biobase::pData(raw_data) <- Biobase::pData(raw_data)[, c("Source.Name","Characteristics.individual.","Factor.Value.disease.", "Factor.Value.phenotype.")]
+```
+
+```{r, qualitycontrol}
+# You can see the expression values using the following function
+Biobase::exprs(raw_data)[1:5,1:5]
+
+# Usially expression data is analysed on log scale so will take log for the expression data
+# This is going to create a massive massive df with lots of rows
+# This is >500 mb
+exp_raw <- log2(Biobase::exprs(raw_data))
+
+# This now gives the sd for each principal component, The values in a 58 dimensional space and rotations
+PCA_raw <- prcomp(t(exp_raw), scale. = FALSE)
+# We can now get the contribution of each principal component in explaining the variance by dividing square of each sd by the sum of them
+percentVar <- round(100*PCA_raw$sdev^2/sum(PCA_raw$sdev^2),1)
+
+# Now we will get the aspect ratio depeding of the percentage of variation explained by each of the axis.
+# notice this will be used in corrd fixed
+aspectRatio <- sqrt(percentVar[2] / percentVar[1])
+
+# Now we get a df for plotting the first two principal components. Along with some metadata to colour them differently
+
+dataGG <- data.frame(PC1 = PCA_raw$x[,1], PC2 = PCA_raw$x[,2],
+                       Disease = pData(raw_data)$Factor.Value.disease.,
+                       Phenotype = pData(raw_data)$Factor.Value.phenotype.)
+
+# Now lets go ahead and plot this
+ggplot(dataGG, aes(x=PC1, y=PC2)) + 
+  geom_point(aes(colour = Phenotype, shape = Disease)) + 
+  scale_shape_manual(values = c(4,15)) +
+  xlab(paste0("PC1, VarExp: ", percentVar[1], "%")) +
+  ylab(paste0("PC2, VarExp: ", percentVar[2], "%")) +
+  coord_fixed(ratio = sd_ratio) +
+  theme(plot.title = element_text(hjust = 0.5))+
+  ggtitle("PCA plot of the log-transformed raw expression data") +
+  scale_color_manual(values = c("darkorange2", "dodgerblue4"))
+```
+```{r, intensities_boxplot}
+# We will now see the distibution of the raw intensities per sample. We expect overall all the samples to have a similar distribution of intensities
+oligo::boxplot(x = raw_data, target = "core")
+
+# Lets look into the array qualiy metrics
+arrayQualityMetrics(expressionset = raw_data,
+     outdir = tempdir(),
+     force = TRUE, do.logtransform = TRUE,
+     intgroup = c("Factor.Value.disease.", "Factor.Value.phenotype."))
+```
+
+

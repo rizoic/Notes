@@ -1,12 +1,12 @@
-## GNU Parallel notes.
+# GNU Parallel
 
 GNU parallel is a command line utility to run shell commands in parallel. I also find it handly to generate shell commands on a variety of inputs. [More info](https://www.gnu.org/software/parallel/)
 
 These notes are primarily from the [GNU parallel book](https://zenodo.org/record/1146014/files/GNU_Parallel_2018.pdf)
 
-### Quick Start
+## Quick Start
 
-#### Input sources
+### Input sources
 GNU parallel can take input from STDIN(through pipes or manual entry) or then you can specify it manually
 
 Manual Entry
@@ -26,7 +26,7 @@ Multiple inputs can be given using :::
 parallel echo ::: S M L ::: Green Red
 ```
 
-#### Build the command line
+### Build the command line
 So anything before the ::: is taken as the command. You can even have multiple commands just remember to seperate them by ; in quotes like ';'
 
 ```bash
@@ -46,7 +46,7 @@ parallel echo count {1} in {2}';' wc {1} {2} ::: -l -c ::: example.*
 
 You can use --dry-run to see the actual commands that will be run. This comes very handy also as a shell script generator.
 
-#### Control the output
+### Control the output
 By default parallel will launch all commands in parallel and print their output as soon as any of the commands complete
 This means that you might not see the output in the same order as the input. However this can be controlled using the `--keep-order/-k` parameter which will ensure that the output is printed in the same order as the input even though the commands may run and complete in a different order.
 

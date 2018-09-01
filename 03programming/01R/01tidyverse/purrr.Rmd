@@ -1,0 +1,16 @@
+---
+title: "purrr"
+author: "rizoic"
+date: "21 August 2018"
+output: html_document
+---
+
+# Notes from the [tutorial](https://jennybc.github.io/purrr-tutorial/) for purrr.
+
+```{r}
+# Purr is mainly of utlity in avoiding writing for loops.
+# The sytanx of purrr functions for example map is as follows
+#purrr::map({list or atomic vector}, {function/formula/vector})
+
+```
+
