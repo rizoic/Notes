@@ -12,3 +12,11 @@ find -name "*.fastq.gz"|sort|sed -e ':a;N;$!ba;s/\n/,/g'
 ```
 
 An explanation as to what these modifiers actually do can be found [here](https://stackoverflow.com/a/1252191)
+
+## Add a header to pipe input
+
+You can use sed to add a header to add a header to piped input. This comes in handy when you are having something like a fasta seqeunce on pipe and want to add a header to it
+
+``` bash
+{some set of operations}|sed -1i"headerline"
+```
