@@ -41,3 +41,38 @@ Host github.com-jexchan
 [Source](https://gist.github.com/jexchan/2351996)
 
 You may also have to change you remote url to be of the format `git@github.com-{username}:{repo-url}.git` e.g. git@github.com-activehacker:activehacker/gfs.git
+
+## Merge a branch into master
+
+You can merge a branch in the master using the command line as follows
+
+``` bash
+git checkout master
+git pull origin master
+git merge test
+git push origin master
+```
+
+The flow is basically doing this:-
+
+1. Setting up the current branch to master
+2. Pulling changes if any in the remote into master. This is preventing any conflicts later
+3. Then you do the merge. If you have not made any changes to master this a fairly straigt forward things and should happen automatically without any intervention
+4. Then you push the merged change to master on remote.
+
+[Source](https://stackoverflow.com/a/5602109)
+
+## Delete a branch from local/remote
+
+You can delete the branch from local and remote using the following commands
+
+``` bash
+git branch -d <branchname>
+# e.g. git branch -d tempbranch
+
+git push --delete origin <branchname>
+# e.g. git push --delete origin tempbranch
+# Do change from origin if you remote name is different
+```
+[Source](https://stackoverflow.com/a/2003515)
+

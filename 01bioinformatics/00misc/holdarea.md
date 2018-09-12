@@ -11,3 +11,28 @@ Often when you want to get some bioinformatics mapping data i.e. genes for an or
 - [UCSC Table Browser](https://genome.ucsc.edu/cgi-bin/hgTables) - This is another powerful tool to fetch data and perform operations on it on the server itself. I am currently unaware of a autoamted way of doing it. 
 
 - [Gencode Genes](https://www.gencodegenes.org/) - You can go here to fetch the reference genomes for humaan/mouse and the transcript seqeunces. If you use gencode it becomes very easy to update with new versions. The gencode transcripts are the same as encode except for some differences the details of which can be found [here](https://www.gencodegenes.org/faq.html)
+
+## Refseq Accession Numbers
+
+The key to refseq accession numbers :-
+
+| Accession prefix | Molecule type | Comment                                                                 |
+|------------------|---------------|-------------------------------------------------------------------------|
+| AC_              | Genomic       | Complete genomic molecule, usually alternate assembly                   |
+| NC_              | Genomic       | Complete genomic molecule, usually reference assembly                   |
+| NG_              | Genomic       | Incomplete genomic region                                               |
+| NT_              | Genomic       | Contig or scaffold, clone-based or WGSa                                 |
+| NW_              | Genomic       | Contig or scaffold, primarily WGSa                                      |
+| NZ_b             | Genomic       | Complete genomes and unfinished WGS data                                |
+| NM_              | mRNA          | Protein-coding transcripts (usually curated)                            |
+| NR_              | RNA           | Non-protein-coding transcripts                                          |
+| XM_c             | mRNA          | Predicted model protein-coding transcript                               |
+| XR_c             | RNA           | Predicted model non-protein-coding transcript                           |
+| AP_              | Protein       | Annotated on AC_ alternate assembly                                     |
+| NP_              | Protein       | Associated with an NM_ or NC_ accession                                 |
+| YP_c             | Protein       | Annotated on genomic molecules without an instantiatedtranscript record |
+| XP_c             | Protein       | Predicted model, associated with an XM_ accession                       |
+| WP_              | Protein       | Non-redundant across multiple strains and species                       |
+
+
+[Source](https://www.ncbi.nlm.nih.gov/books/NBK21091/table/ch18.T.refseq_accession_numbers_and_mole/?report=objectonly)
