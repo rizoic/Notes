@@ -76,3 +76,23 @@ git push --delete origin <branchname>
 ```
 [Source](https://stackoverflow.com/a/2003515)
 
+## Create a new branch
+
+Branches are very helpful in git where you want to try something out. Generally my workflow is if i want to try a bunch of things I will create a new branch. All further changes will be done only to this branch. If things work out then I will merge branch into master else i will simply delete it. A new branch can be created and pushed to remote using the following set of commands
+
+``` bash
+# Create new branch
+# This will also set your working branch to this new branch
+git checkout -b [name_of_your_new_branch]
+
+# Change you branch
+git checkout [name_of_your_new_branch]
+
+# Push branch to remote
+git push origin [name_of_your_new_branch]
+
+# Get names as status for branches
+git branch
+```
+[Source](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
+
