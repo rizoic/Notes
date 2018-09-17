@@ -36,3 +36,12 @@ The key to refseq accession numbers :-
 
 
 [Source](https://www.ncbi.nlm.nih.gov/books/NBK21091/table/ch18.T.refseq_accession_numbers_and_mole/?report=objectonly)
+
+## Guide to gene naming
+
+These are a couple of guides which can tell the rules behind the naming of genes
+
+- [HGNC](https://www.genenames.org/about/guidelines)
+- [MGI](http://www.informatics.jax.org/nomen/gene.shtml)
+
+Will try to go through them later and find some interesting and relevant to day to day rules

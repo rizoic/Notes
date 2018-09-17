@@ -93,6 +93,10 @@ git push origin [name_of_your_new_branch]
 
 # Get names as status for branches
 git branch
+
+# When you push for the first time. You will have to set the active branch to new one
+# You can do this using the following command
+git push --set-upstream origin [name_of_your_new_branch]
 ```
 [Source](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
 
