@@ -50,3 +50,14 @@ You can use --dry-run to see the actual commands that will be run. This comes ve
 By default parallel will launch all commands in parallel and print their output as soon as any of the commands complete
 This means that you might not see the output in the same order as the input. However this can be controlled using the `--keep-order/-k` parameter which will ensure that the output is printed in the same order as the input even though the commands may run and complete in a different order.
 
+### Dynamic replacement variables
+When working with files you often want to do processing like remove extensions, get dirname etc. These can be done with replacement strings using `--rpl`. The cool thing is you can do this multiple times and create multiple vars
+
+Lets see this with an example
+```bash
+# This will find all the .fq.gz files
+# The variable b will remove the parent dirname
+# The variable c will remove the .fq.gz extension
+# This can also be done with parallel inbuild vars but this is just an example
+find -name "*fq.gz"|parallel --dry-run --rpl '{b} s/.*?fastq\///' --rpl '{c} s/\.fq\.gz//' "STAR {b} {c}"
+```
