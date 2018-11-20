@@ -1,9 +1,9 @@
-### Illumina Sequencing
+# Illumina Sequencing
 
 Illunmina sequencing technology is one of the most used sequencng technology today.
 
 
-#### Adapters
+## Adapters
 In order to be able to seqeuence any given DNA fragment illumina technology ataches adapters to your DNA fragments. The adapters for TruSeq consist primarily of two parts an Universal or P5 adapter and an Index or P7 adapter. The index adapter will have a 8 base unique fragment which is the barcode for your library. This enables sequencing of multilple samples in a single sequencing run.
 The arrangement of these adapters can be seen in many images but the best representation I could find of this is
 ```
@@ -52,3 +52,10 @@ cutadapt \
 [Source](http://cutadapt.readthedocs.io/en/stable/guide.html#illumina-truseq)
 
 So read1 is always AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC and read 2 can be AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA or can be longer at AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT
+
+## Insert Size
+
+The terms insert/fragment size can get very confusing. However the following image and [this blog post](http://thegenomefactory.blogspot.com/2013/08/paired-end-read-confusion-library.html) can make things fairly clear
+
+![Fragment Size Image](http://www.frontiersin.org/files/Articles/77572/fgene-05-00005-HTML/image_m/fgene-05-00005-g001.jpg)
+
