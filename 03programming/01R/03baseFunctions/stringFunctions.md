@@ -8,7 +8,7 @@ Notes on functions that provide utility in dealing with strings in R. These note
 ```R
 vec1 <- c('a','b','c')
 vec2 <- c('s','a','t','y','b')
-match(vec1, vec2) # Gives c(2,5)
+match(vec1, vec2) # Gives c(2,5,NA)
 ```
 
 In most of the scenarios `%in%` does the job for you but in some cases where you want to do things like select certain rows based on matches then `match` comes in handy.
