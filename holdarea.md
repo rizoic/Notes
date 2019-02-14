@@ -68,11 +68,11 @@
 
 34. STAR output logs
 
-Log.out: main log file with a lot of detailed information about the run. This file is most useful
+- **Log.out**: main log file with a lot of detailed information about the run. This file is most useful
 for troubleshooting and debugging.
-Log.progress.out: reports job progress statistics, such as the number of processed reads, %
+- **Log.progress.out**: reports job progress statistics, such as the number of processed reads, %
 of mapped reads etc. It is updated in 1 minute intervals.
-Log.final.out: summary mapping statistics after mapping job is complete, very useful for
+- **Log.final.out**: summary mapping statistics after mapping job is complete, very useful for
 quality control. The statistics are calculated for each read (single- or paired-end) and then
 summed or averaged over all reads. Note that STAR counts a paired-end read as one read,
 (unlike the samtools flagstat/idxstats, which count each mate separately). Most of the information 
