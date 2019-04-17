@@ -13,3 +13,8 @@ A decent application example can be found [here](http://www.brodrigues.co/blog/2
 A package that will rate your visualizations as per the principles of visualization
 
 [R-Bloggers Post](https://www.r-bloggers.com/introducing-vizscorer-a-bot-advisor-to-score-and-improve-your-ggplot-plots/)
+
+## [vroom](https://github.com/jimhester/vroom)
+
+[Vroom](https://github.com/jimhester/vroom) seems like a very promising delimited reader for R. It will lazily read in indexed files.
+

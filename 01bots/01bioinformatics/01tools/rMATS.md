@@ -7,4 +7,4 @@ rMATS is a tool to detect alternative splicing events from RNA-seq data. Its sta
 1. The statistical model for rMATS can be downloaded seprately from [Github](https://github.com/Xinglab/rMATS-STAT/)
 2. You can convert the output of rMATS to a sashimi plot using the tool [rmats2sashimiplot](https://github.com/Xinglab/rmats2sashimiplot/)
 
-## 
+
