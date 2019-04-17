@@ -61,3 +61,4 @@ Lets see this with an example
 # This can also be done with parallel inbuild vars but this is just an example
 find -name "*fq.gz"|parallel --dry-run --rpl '{b} s/.*?fastq\///' --rpl '{c} s/\.fq\.gz//' "STAR {b} {c}"
 ```
+

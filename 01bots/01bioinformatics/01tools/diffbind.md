@@ -1,23 +1,8 @@
-# chipseq analysis
-
-## tools
-
-### bwtool
-
-bwtool is a command line wiki for working with bigWig files. You can do a lot of data extraction, analysis and data modification operations on .bw files using bwtool. [More Info](https://github.com/CRG-Barcelona/bwtool/wiki)
-
-#### `summary`
-
-- Provides summary stats like mean, median, max, min of bw coverage/signal in for each given interval.
-- So if an interval of 4 positions has coverage values of 1,2,3,4 it will calculate the mean of mean(1,2,3,4) and give values for that interval. Similary it will do the same for other operations.
-- You can optionally add the sum, quantiles,sum of squared deviations from mean(to see variablity of coverage in a region). 
-- You can also ask bwtool to consider or ignore positions with zero coverage in calculations with the argument fill=0/1. [Source](https://github.com/CRG-Barcelona/bwtool/wiki/summary)
-
-### diffbind
+# diffbind
 
 This is a bioconductor package which can be used to find differentially bound sites for Chip Seq experiments. More details on [Bioconductor](https://bioconductor.org/packages/release/bioc/html/DiffBind.html)
 
-#### Diffbind Output Format
+## Diffbind Output Format
 Quoting from the [reference manual](https://bioconductor.org/packages/release/bioc/manuals/DiffBind/man/DiffBind.pdf)
 
 | Col Name | Description |
@@ -41,7 +26,7 @@ Called2 Number of samples in group 2 that identified this binding site as a peak
 
 If bCounts is TRUE, a column will be present for each sample in group 1, followed by each sample in group 2. The Sample ID will be used as the column header. This column contains the read counts for the sample.
 
-#### Details on bCounts
+## Details on bCounts
 
 > The normalized counts returned by dba.report()are the raw reads divided by the normalization factors, obtained by calling DESeq2::sizeFactors().[Source](https://support.bioconductor.org/p/68134/#68168)
 
@@ -53,7 +38,7 @@ If bCounts is TRUE, a column will be present for each sample in group 1, followe
 
 So in summary it depends on if you used bFullLibrarySize=FALSE/TRUE. If you set that to be `true` then the full library sizes will be used for normalization and you will find one of sample to have integer counts indicating that sample had the least number of reads and it had a normalizaion denominatior of 1, If you set it to `false` then it will get the normalization factors per peak.
 
-#### Getting common peaks between replicates
+## Getting common peaks between replicates
 Ok you can get common peaks between replicates in different combinations using the plotVenn function in diffbind. This function will return a list which will have different dataframes like onlyA, notinA,inAll. You can use these combinations along with rbind(after subsetting to first 3 columns Chr,Start,End) to get a bed file for a required intersection
 
 ```R
@@ -67,7 +52,7 @@ df.merged <- rbind(df$notA[,c(1,2,3)], df$notB[,c(1,2,3)], df$notC[,c(1,2,3)], d
 write.table(df.merged, file = "Cond1_atleast_2_replicates.xls", sep = "\t", quote = FALSE, row.names = FALSE)
 ```
 
-#### Details on how the correlation is calculated
+## Details on how the correlation is calculated
 
 > First, each peak set is read in separately. The scores are normalized to a 0-1 scale as follows `scores <- scores/max(scores) (if LowerBetter was specified, this is followed by scores <- 1-scores.)` 
 > Second, all the peaksets are merged. Any overlapping peak regions are extended to encompass the contiguous peaks, so peaks are consider to overlap if at least one base position overlaps. 
@@ -79,45 +64,3 @@ So here is the procedure i think is followed:-
 
 1. You load you peakset. Lets assume this if from MACS. Macs will assign a p-value to each peak. This p-value is going to be considered as the score after being normalized to a scale of 0-1 by dividing the scores in each peakset by the maximum score. If a peak is not called for a sample it is assigned a score of -1. 
 2. This creates a matrix with samples in the columns and merged peaks in the rows. This matrix is used to calculated a pairwise peason correlation and that is what is plotted in the heatmap.
-
-
-
-
-
-
-### rose
-
-ROSE is a tool which can be used to identify super enhances from Chip Seq data. 
-
-The workflow of the tool can be summarized as :-
-
-- Create stitched enhancers bu joining those which are within a specified stitching distance
-- Get sum of coverages for all positions from treatment and control bam files for these regions.
-- Get a score by subtracting signal for control from the treatment.
-- This score is then used to find a point where there is a dramatic increase in the score. This point is tangent to the plot of sorted scores vs rank.
-  ![SE Calling Illustration](https://res.mdpi.com/genes/genes-06-01183/article_deploy/html/images/genes-06-01183-g001.png)
-  [Source](http://www.mdpi.com/2073-4425/6/4/1183/htm)
-- Once this point is obtained then all merged peaks which had a higher (treatment) - signal coverage are taken as super enhancers.
-- The tool gives output in terms of bed files which can be visualised in UCSC/IGV, tables which can be viewed with excel, a hockey plot similar to the one in illustration above.
-- The obtained enhancers/super enhancers can be annotate using the ROSE_geneMapper.py script in the tool.
-
-## databases
-
-Ok so if you want to find if chip data exists for a partuclar cell type/cell line these are some of the resources you can use to look for it:-
-
-1. **GEO Search**
-
-You can substitute the name of the cell line/cell type in [this](https://www.ncbi.nlm.nih.gov/gds?term=sjsa1%5BAll%20Fields%5D%20AND%20%22Genome%20binding/occupancy%20profiling%20by%20high%20throughput%20sequen%22%5BFilter%5D&cmd=DetailsSearch) URL format and then search. This will filter the results for chip seq results only if any.
-
-2. [**Cistrome Data Browser**](http://cistrome.org/db/#/)
-
-This includes a data browser where you can filter by Species, Biological Sources and Factors. It applies a uniform analysis pipeline called ChiLin on all the samples.
-
-3. You can also use the [ENA search](https://www.ebi.ac.uk/ena/data/warehouse/search) to search for a dataset.
-
-4. Some of the other data bases which could be of interest are [Chip-Atlas](https://chip-atlas.org), [ChipBase](http://rna.sysu.edu.cn/chipbase) and [Remap](http://pedagogix-tagc.univ-mrs.fr/remap/)
-
-
-## wetlab
-
-1. What is input and what is igg and when which are used:- When doing chip seq you add formaldehyde to cross like the protien with dna. Then you sonicate the dna and pull down this cross linked protien with an antodby attached to a bead. This bead is pulled down magnetically. This pulldown by antibodies is called immunoprecipication. Now the problem with just using this IP sample is that there can be some background DNA also pulled down or you may have your antibody cross linking with some other protien(maybe even non nuclear and thus not binding to DNA). How do you control and not say that the protien binds against some background portion or some 

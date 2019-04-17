@@ -1,72 +1,68 @@
 # HOLDAREA
 
-1. A tool which can integrate Chip and RNA seq with individual rankings from both is required. The question is how do you rank the genes for chip analysis. There seem to be two metrics which can come up. A distance based metric which gives weights to genes based on their distance from peaks or a score based one which weigh's peaks by their score or fold change. But we have fold change is macs2 too, why no use that for ranking the peaks and every gene maybe gets a value based on its log2fc and distance from closest peak to it. Maybe something like this
 
-2. There is a need for an histone cheatsheet. Some of them exist but more are required
 
-3. How is single cell analysis different from the cell line or tissue analysis we do normally?
+1. A good set of [resource](http://www.csun.edu/~cmalone/pdf562/) for understanding epigenetic parts
 
-4. A good set of [resource](http://www.csun.edu/~cmalone/pdf562/) for understanding epigenetic parts
+2. [ChromHMM](http://compbio.mit.edu/ChromHMM/) - ChromHMM is software for learning and characterizing chromatin states. ChromHMM can integrate multiple chromatin datasets such as ChIP-seq data of various histone modifications to discover de-novo the major re-occurring combinatorial and spatial patterns of marks. ChromHMM is based on a multivariate Hidden Markov Model that explicitly models the presence or absence of each chromatin mark. The resulting model can then be used to systematically annotate a genome in one or more cell types. By automatically computing state enrichments for large-scale functional and annotation datasets ChromHMM facilitates the biological characterization of each state. ChromHMM also produces files with genome-wide maps of chromatin state annotations that can be directly visualized in a genome browser. It is actively maintained.
 
-5. [ChromHMM](http://compbio.mit.edu/ChromHMM/) - ChromHMM is software for learning and characterizing chromatin states. ChromHMM can integrate multiple chromatin datasets such as ChIP-seq data of various histone modifications to discover de-novo the major re-occurring combinatorial and spatial patterns of marks. ChromHMM is based on a multivariate Hidden Markov Model that explicitly models the presence or absence of each chromatin mark. The resulting model can then be used to systematically annotate a genome in one or more cell types. By automatically computing state enrichments for large-scale functional and annotation datasets ChromHMM facilitates the biological characterization of each state. ChromHMM also produces files with genome-wide maps of chromatin state annotations that can be directly visualized in a genome browser. It is actively maintained.
+3. [Segway](https://segway.hoffmanlab.org/) - Another alternative to ChromHMM is Segway - The free Segway software package contains a novel method for analyzing multiple tracks of functional genomics data. Our method uses a dynamic Bayesian network (DBN) model, which enables it to analyze the entire genome at 1-bp resolution even in the face of heterogeneous patterns of missing data. This method is the first application of DBN techniques to genome-scale data and the first genomic segmentation method designed for use with the maximum resolution data available from ChIP-seq experiments without downsampling. Segway uses the Graphical Models Toolkit (GMTK) for efficient DBN inference. Our software has extensive documentation and was designed from the outset with external users in mind. It is python based and also actively maintained.
 
-6. [Segway](https://segway.hoffmanlab.org/) - Another alternative to ChromHMM is Segway - The free Segway software package contains a novel method for analyzing multiple tracks of functional genomics data. Our method uses a dynamic Bayesian network (DBN) model, which enables it to analyze the entire genome at 1-bp resolution even in the face of heterogeneous patterns of missing data. This method is the first application of DBN techniques to genome-scale data and the first genomic segmentation method designed for use with the maximum resolution data available from ChIP-seq experiments without downsampling. Segway uses the Graphical Models Toolkit (GMTK) for efficient DBN inference. Our software has extensive documentation and was designed from the outset with external users in mind. It is python based and also actively maintained.
+4. CTCF binding seems to be another important dataset that can be very helpful and needs to be looked into
 
-7. CTCF binding seems to be another important dataset that can be very helpful and needs to be looked into
+5. There are another tools to make chromatin state maps - TreeHMM, hiHMM, diHMM.
 
-8. There are another tools to make chromatin state maps - TreeHMM, hiHMM, diHMM.
+6. t-SNE, MDS and SOM(Self organising maps) need to be seen in.
 
-9. t-SNE, MDS and SOM(Self organising maps) need to be seen in.
+7. What is done as a part of footprinting analysis for ATAC Seq?
 
-10. What is done as a part of footprinting analysis for ATAC Seq?
+8. Profile plots from chip seq are also possibly known as metagene plots. There exists an [R package](https://bioconductor.org/packages/devel/bioc/vignettes/metagene/inst/doc/metagene.html) which can draw these for you
 
-11. Profile plots from chip seq are also possibly known as metagene plots. There exists an [R package](https://bioconductor.org/packages/devel/bioc/vignettes/metagene/inst/doc/metagene.html) which can draw these for you
+9. [DREAMSeq](http://tanglab.hebtu.edu.cn/tanglab/Home/DREAMSeq) - A differential relative expression analysis method for RNA-seq data mining. A new method for RNA seq DEG analysis seems interesting
 
-12. [DREAMSeq](http://tanglab.hebtu.edu.cn/tanglab/Home/DREAMSeq) - A differential relative expression analysis method for RNA-seq data mining. A new method for RNA seq DEG analysis seems interesting
+10. BETA a tool to do integrative analysis of chip and RNA seq has a forum which can be accessed at [here](https://groups.google.com/forum/#!topic/cistromebeta/ZVPt2tUgYpg)
 
-13. BETA a tool to do integrative analysis of chip and RNA seq has a forum which can be accessed at [here](https://groups.google.com/forum/#!topic/cistromebeta/ZVPt2tUgYpg)
+11. Single ends usually have lower mapping rates because we don't have the other pair to help in the alignment
 
-14. Single ends usually have lower mapping rates because we don't have the other pair to help in the alignment
+12. Teaser is a really handy tool and should be used more frequently
 
-15. Teaser is a really handy tool and should be used more frequently
+13. BWA aln for smaller reads and BWA mem for longer ones seem fine. Many pipelines are using that now. I think we will need a teaser face off for this
 
-16. BWA aln for smaller reads and BWA mem for longer ones seem fine. Many pipelines are using that now. I think we will need a teaser face off for this
+14. [Vroom](https://github.com/jimhester/vroom) seems like a very promising delimited reader for R. It will lazily read in indexed files.
 
-17. [Vroom](https://github.com/jimhester/vroom) seems like a very promising delimited reader for R. It will lazily read in indexed files.
+15. A good introduction to [probability](https://seeing-theory.brown.edu/index.html#secondPage)
 
-18. A good introduction to [probability](https://seeing-theory.brown.edu/index.html#secondPage)
+16. [PEPATAC](https://github.com/databio/pepatac) - A modular, containerized pipeline for ATAC-seq data processing. Used in the TCGA paper for ATAC seq
 
-19. [PEPATAC](https://github.com/databio/pepatac) - A modular, containerized pipeline for ATAC-seq data processing. Used in the TCGA paper for ATAC seq
+17. [iGenomes](https://support.illumina.com/sequencing/sequencing_software/igenome.html) - Standard ref genomes from illumina
 
-20. [iGenomes](https://support.illumina.com/sequencing/sequencing_software/igenome.html) - Standard ref genomes from illumina
+18. [refgenie](https://github.com/databio/refgenie) - Refgenie creates a standardized folder structure for reference genome files and indexes. You can download pre-built genomes or use the script to build your own for any genome you like. 
 
-21. [refgenie](https://github.com/databio/refgenie) - Refgenie creates a standardized folder structure for reference genome files and indexes. You can download pre-built genomes or use the script to build your own for any genome you like. 
+19. [elmer](http://bioconductor.org/packages/release/bioc/html/ELMER.html) - ELMER is designed to use DNA methylation and gene expression from a large number of samples to infer regulatory element landscape and transcription factor network in primary tissue.
 
-22. [elmer](http://bioconductor.org/packages/release/bioc/html/ELMER.html) - ELMER is designed to use DNA methylation and gene expression from a large number of samples to infer regulatory element landscape and transcription factor network in primary tissue.
+20. Overhang in star is the number of based after a denovo or annotated junction. The higher the overhang the more is your accuracy however you may also sacrifice a bit on sensitivity.
 
-23. Overhang in star is the number of based after a denovo or annotated junction. The higher the overhang the more is your accuracy however you may also sacrifice a bit on sensitivity.
+21. Using [GeneID](https://cdn.technologynetworks.com/TN/Resources/PDF/0367.pdf) for U12 prediction
 
-24. Using [GeneID](https://cdn.technologynetworks.com/TN/Resources/PDF/0367.pdf) for U12 prediction
+22. SpliceRack is a good resource to download PSSM's for U12 prediction
 
-25. SpliceRack is a good resource to download PSSM's for U12 prediction
+23. [FLUXSimulator](http://confluence.sammeth.net/display/SIM/Home) is used in a lot of experiments for simulating RNA Seq data. Seems faily feature rich.
 
-26. [FLUXSimulator](http://confluence.sammeth.net/display/SIM/Home) is used in a lot of experiments for simulating RNA Seq data. Seems faily feature rich.
+24. We need a python/C based tool to detect U12/U2 from GTF and fa file.
 
-27. We need a python/C based tool to detect U12/U2 from GTF and fa file.
+25. SGSeq also seems to be good tool to for alternative splicing quantification
 
-28. SGSeq also seems to be good tool to for alternative splicing quantification
+26. rMATS requirement for end to end does not make so much sense to me so i am going to skip it[Source](https://groups.google.com/forum/#!searchin/rna-star/alternative$20splicing%7Csort:date/rna-star/1G01jkjlLPI/IUZam_-ZAAAJ)
 
-29. rMATS requirement for end to end does not make so much sense to me so i am going to skip it[Source](https://groups.google.com/forum/#!searchin/rna-star/alternative$20splicing%7Csort:date/rna-star/1G01jkjlLPI/IUZam_-ZAAAJ)
+27. STAR manual recommends gencode annotations for human and mouse
 
-30. STAR manual recommends gencode annotations for human and mouse
+28. You can also give a custom annotated junctions list to STAR in the format Chr\tab Start\tab End\tab Strand=+/-/.
 
-31. You can also give a custom annotated junctions list to STAR in the format Chr\tab Start\tab End\tab Strand=+/-/.
+29. You can also insert some custom junctions on the fly that is additional to your custom junctions. 
 
-32. You can also insert some custom junctions on the fly that is additional to your custom junctions. 
+30. ENCODE options and TCGA options used for STAR are kinda similar.
 
-33. ENCODE options and TCGA options used for STAR are kinda similar.
-
-34. STAR output logs
+31. STAR output logs
 
 - **Log.out**: main log file with a lot of detailed information about the run. This file is most useful
 for troubleshooting and debugging.
@@ -114,4 +110,62 @@ divided by the total number of mapped bases.
 
 50. When you download the genome from UCSC you may see some of the nucleotides as upper case while some as lower case. The lower case ones are repeats as per repeatmasker while the upper case ones are non repeats. [Source](https://biology.stackexchange.com/a/45304)
 
+    
+# HOLD AREA
 
+Misc notes which may/may not get converted to full ones
+
+## Get Data
+
+Often when you want to get some bioinformatics mapping data i.e. genes for an organism, gtf files there are bascially 3 places you should think of first
+
+- [Biomart](http://ensembl.org/biomart) - This is the swiss army knife. It can help you in mapping things. If you want something like the mouse gene names mapped to something like PDB ID for example this will do that for you. The web interface is a good starting point to get a feel for what you can do. When you are familar with it you can use the equally powerfull bioconductor module [BioMArt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) to fetch things in an automated fashion
+
+- [UCSC Table Browser](https://genome.ucsc.edu/cgi-bin/hgTables) - This is another powerful tool to fetch data and perform operations on it on the server itself. I am currently unaware of a autoamted way of doing it. 
+
+- [Gencode Genes](https://www.gencodegenes.org/) - You can go here to fetch the reference genomes for humaan/mouse and the transcript seqeunces. If you use gencode it becomes very easy to update with new versions. The gencode transcripts are the same as encode except for some differences the details of which can be found [here](https://www.gencodegenes.org/faq.html)
+
+## Refseq Accession Numbers
+
+The key to refseq accession numbers :-
+
+| Accession prefix | Molecule type | Comment                                                                 |
+|------------------|---------------|-------------------------------------------------------------------------|
+| AC_              | Genomic       | Complete genomic molecule, usually alternate assembly                   |
+| NC_              | Genomic       | Complete genomic molecule, usually reference assembly                   |
+| NG_              | Genomic       | Incomplete genomic region                                               |
+| NT_              | Genomic       | Contig or scaffold, clone-based or WGSa                                 |
+| NW_              | Genomic       | Contig or scaffold, primarily WGSa                                      |
+| NZ_b             | Genomic       | Complete genomes and unfinished WGS data                                |
+| NM_              | mRNA          | Protein-coding transcripts (usually curated)                            |
+| NR_              | RNA           | Non-protein-coding transcripts                                          |
+| XM_c             | mRNA          | Predicted model protein-coding transcript                               |
+| XR_c             | RNA           | Predicted model non-protein-coding transcript                           |
+| AP_              | Protein       | Annotated on AC_ alternate assembly                                     |
+| NP_              | Protein       | Associated with an NM_ or NC_ accession                                 |
+| YP_c             | Protein       | Annotated on genomic molecules without an instantiatedtranscript record |
+| XP_c             | Protein       | Predicted model, associated with an XM_ accession                       |
+| WP_              | Protein       | Non-redundant across multiple strains and species                       |
+
+
+[Source](https://www.ncbi.nlm.nih.gov/books/NBK21091/table/ch18.T.refseq_accession_numbers_and_mole/?report=objectonly)
+
+## Guide to gene naming
+
+These are a couple of guides which can tell the rules behind the naming of genes
+
+- [HGNC](https://www.genenames.org/about/guidelines)
+- [MGI](http://www.informatics.jax.org/nomen/gene.shtml)
+
+Will try to go through them later and find some interesting and relevant to day to day rules
+
+## Get insert size and its sd for GEO
+
+When uploading datasets to GEO one of the entries that is optionally required in the template is the insert file and its SD. You can easily get this by using the [CollectInsertSizeMetrics](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.1.2/picard_analysis_CollectInsertSizeMetrics.php) utility that comes as a part of Picard. This should give you both the required metrics [Source](https://translate.googleusercontent.com/translate_c?depth=1&hl=en&prev=search&rurl=translate.google.com&sl=zh-CN&sp=nmt4&u=http://t43983006.lofter.com/post/1d0b3057_c4734ba&xid=17259,15700022,15700124,15700149,15700186,15700191,15700201&usg=ALkJrhg2252KYIttBsJ1c_hgcu24x7VqxQ).
+
+## Handling GTF files in R
+
+A few interesting ways of doing this are - 
+
+1. [GTF](https://github.com/jokergoo/GTF) - A simple class for reading in GTF files. Can be expanded further if required
+2. []
