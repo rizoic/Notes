@@ -1,4 +1,4 @@
-# BASH
+# Bash
 
 Notes on general bash shell things
 
@@ -22,3 +22,10 @@ touch {A..C}.bed
 ```
 
 You can find more information on such expansions [here](https://www.linuxjournal.com/content/bash-brace-expansion)
+
+You can do something similar when creating dirs
+
+```bash
+mkdir -p /results/test/{dir1,dir2,dir3}
+```
+

@@ -53,27 +53,20 @@
 
 17. Ok this one is on U12DB. You would think that one would do a simple thing while making a DB for U12 predictions that take the splice junctions and do denovo prediction on them and move on. But for U12DB the methodology used is very different. They took all the human U12 predictions and then for each predicted intron they took 100 bases of flanking sequence and then looked for that flanking sequence in the gene sequences of all its orthologs. If they found a gapped match with the gap coming at around 100 bases then they took it as an intron and put into the U2/U12 pipeline.
 
-18. For quick scripting - gnu parallel > bash > perl > python. Other options are sed, awk, csv specific tools.
+18. To unmount a dir mounted by sshfs use fusermount -u <dirpath> [Source](https://stackoverflow.com/a/22921004)
 
-19. To unmount a dir mounted by sshfs use fusermount -u <dirpath> [Source](https://stackoverflow.com/a/22921004)
+19. [FastaReferenceMaker](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_fasta_FastaAlternateReferenceMaker.php) seems like a cool tool that will substitute the snps in a vcf file into your reference and give you and alternate reference
 
-20. How to create multiple subdirs in bash `mkdir -p /results/test/{dir1,dir2,dir3}`
+20. Don't run off to tools and frameworks. A lot of problems can be solved on the command line with things like sed, awk, perl one liners, csv toolkits, grep, cut. Cross of these tools first and only then go on to bigger tool sets and frameworks. Also in bioinformatics remember samtools is very powerful it has a bam viewer and a lot of things in general you can do with bam files.
 
-21. [intervene](https://intervene.readthedocs.io/en/latest/introduction.html) seems like an interesting project for quick verification of venn diagrams.
+21. [Tarbase](http://carolina.imis.athena-innovation.gr/diana_tools/web/index.php?r=tarbasev8%2Findex) is a database of miRNA targets. You can put a gene name in there and get the list of mirna's that would target this gene. It is also available as a track on ensemble to see it visually.
 
-22. [FastaReferenceMaker](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_fasta_FastaAlternateReferenceMaker.php) seems like a cool tool that will substitute the snps in a vcf file into your reference and give you and alternate reference
-
-23. Don't run off to tools and frameworks. A lot of problems can be solved on the command line with things like sed, awk, perl one liners, csv toolkits, grep, cut. Cross of these tools first and only then go on to bigger tool sets and frameworks. Also in bioinformatics remember samtools is very powerful it has a bam viewer and a lot of things in general you can do with bam files.
-
-24. Ensemble genome browser is also very very powerful man. It also links the regions to UCSC browser if required. We should keep it at the back of our head about it.
-
-25. [Tarbase](http://carolina.imis.athena-innovation.gr/diana_tools/web/index.php?r=tarbasev8%2Findex) is a database of miRNA targets. You can put a gene name in there and get the list of mirna's that would target this gene. It is also available as a track on ensemble to see it visually.
-
-26. [miRBase](http://www.mirbase.org/) is a good database of microRNA's.
-
-27. When you download the genome from UCSC you may see some of the nucleotides as upper case while some as lower case. The lower case ones are repeats as per repeatmasker while the upper case ones are non repeats. [Source](https://biology.stackexchange.com/a/45304)
+22. [miRBase](http://www.mirbase.org/) is a good database of microRNA's.
 
     
+
+    
+
 # HOLD AREA
 
 Misc notes which may/may not get converted to full ones
@@ -122,13 +115,10 @@ These are a couple of guides which can tell the rules behind the naming of genes
 
 Will try to go through them later and find some interesting and relevant to day to day rules
 
-## Get insert size and its sd for GEO
 
-When uploading datasets to GEO one of the entries that is optionally required in the template is the insert file and its SD. You can easily get this by using the [CollectInsertSizeMetrics](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.1.2/picard_analysis_CollectInsertSizeMetrics.php) utility that comes as a part of Picard. This should give you both the required metrics [Source](https://translate.googleusercontent.com/translate_c?depth=1&hl=en&prev=search&rurl=translate.google.com&sl=zh-CN&sp=nmt4&u=http://t43983006.lofter.com/post/1d0b3057_c4734ba&xid=17259,15700022,15700124,15700149,15700186,15700191,15700201&usg=ALkJrhg2252KYIttBsJ1c_hgcu24x7VqxQ).
 
 ## Handling GTF files in R
 
 A few interesting ways of doing this are - 
 
 1. [GTF](https://github.com/jokergoo/GTF) - A simple class for reading in GTF files. Can be expanded further if required
-2. []
