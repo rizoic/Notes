@@ -62,3 +62,11 @@ Lets see this with an example
 find -name "*fq.gz"|parallel --dry-run --rpl '{b} s/.*?fastq\///' --rpl '{c} s/\.fq\.gz//' "STAR {b} {c}"
 ```
 
+### Controlling the number of parallel jobs
+
+The parameter `-j` controls the number of parallel jobs that will be run. So incase you want to run only one job at a time you can do so by having the command as
+
+```bash
+find -name "*.bam"|parallel -j 1 "samtools index {}"
+```
+

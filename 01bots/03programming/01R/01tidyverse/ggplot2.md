@@ -21,3 +21,20 @@ ggplot2(aes(x = axis1, y = axis2)) + geom_point(color = factor1)
 6. A good way of adding labels to your points/objects on the plot is to use ggrepel
 
 7. If you export a figure created using ggplot2 (using RStudio: Export -> Copy to Clipboard) and load it into a graphics editor you can select and edit each individual aspect of the figure, including text. #TODO - I need to still text this [Source](https://stackoverflow.com/a/40149093)
+
+## AES
+
+1. **group** - Group is a cool aesthetic which helps you break down one variable as per the values for another one.  An example is here
+
+   ![center](assets/group_aes-1.png)
+
+   This plot is created using
+
+   ```R
+   ggplot(Orange) +
+       geom_line(aes(x = age, y = circumference, group = Tree))
+   ```
+
+   What this is doing is breaking down age into 5 groups as per Trees. [Source](https://michaeltoth.me/a-detailed-guide-to-plotting-line-graphs-in-r-using-ggplot-geom_line.html)
+
+   

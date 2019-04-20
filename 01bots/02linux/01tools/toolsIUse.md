@@ -1,3 +1,5 @@
+
+
 # TOOLS I USE
 
 ## Reference
@@ -33,3 +35,13 @@
    wcalc 10+12
    wcalc 10.4324/543543.543534
    ```
+
+3.  [bat](https://github.com/sharkdp/bat) - Bat is a handy replacement for cat with wings as the author says. It has syntax highligting, line numbers, git integration
+
+    ![Syntax highlighting example](assets/68747470733a2f2f696d6775722e636f6d2f724773646e44652e706e67.png)
+
+## Browser Addons
+
+### Firefox
+
+1. [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/) - This is a must have addon for a power-user. The capabilities it has are mind-boggling. It is one addon that can truly end up saving a lot of time for you.

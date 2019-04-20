@@ -20,3 +20,4 @@ You can use sed to add a header to add a header to piped input. This comes in ha
 ``` bash
 {some set of operations}|sed -1i"headerline"
 ```
+
