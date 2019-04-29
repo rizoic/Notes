@@ -1,3 +1,10 @@
+---
+title: "bioMart"
+author: "rizoic"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
 # BIOMART
 
 ## Access hg19/grch37

@@ -1,0 +1,69 @@
+---
+title: "GenomicFeatures Tutorial"
+author: "rizoic"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
+# Setup
+## Load Libraries
+```{r libload, message=FALSE}
+suppressPackageStartupMessages(library(GenomicFeatures))
+```
+
+## TxDB Objects
+-  This class maps the 5’ and 3’ untranslated regions (UTRs), protein coding sequences(CDSs) and exons for a set of mRNA transcripts to their associated genome.
+- AllTxDb objects are backed by a SQLite database that manages genomic locations and the relationships between pre-processed mRNA transcripts, exons, protein coding sequences, and their related gene identifier
+
+## Loading test dataset
+Loading a `TxDB` object based of hg19 UCSC for trials.
+```{r, loadTest}
+# Loading a pre made sqlite db
+(samplefile <- system.file("extdata", "hg19_knownGene_sample.sqlite",
+                          package="GenomicFeatures"))
+txdb <- loadDb(samplefile)
+txdb
+
+# You can use a TxDB or an sqlite file also if required
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene #shorthand (for convenience)
+txdb
+
+# Print all the chromsomes
+seqlevels(txdb)
+
+
+# Setting only one chromsome to be active
+seqlevels(txdb) <- "chr15"
+seqlevels(txdb)
+
+
+# Get the column names
+columns(txdb)
+
+# Get the columns on which filters can be applied
+keytypes(txdb)
+
+# Get data only for two cols
+keys <- c("100033416", "100033417", "100033420")
+select(txdb, columns = c("TXCHROM","TXNAME","TXSTRAND"), keytype = "GENEID", keys = keys)
+
+# Extract a granges for all the transcripts
+GR <- transcripts(txdb)
+GR
+
+# Get strands for all transcritps
+tx_strand <- strand(GR)
+
+# Get some filtered transcripts as in only trasncipts belonging to the + chromosome
+
+```
+
+
+
+
+# Reproducibility
+```{r, reproducibility}
+# Print the sessioninfo which can then be saved to a log file for reproducilbility
+sessionInfo()
+```
