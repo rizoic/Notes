@@ -62,6 +62,10 @@ The Leek group guide to genomics papers
 
 #TODO
 
+#### [Galaxy Training in Transcriptomics](https://galaxyproject.github.io/training-material/topics/transcriptomics/)
+
+#TODO
+
 ### Bioconductor
 
 #### [An intorduction to Bioconductor and it’s data structures](https://combine-australia.github.io/2017-05-19-bioconductor-melbourne/data_structures.html) 
