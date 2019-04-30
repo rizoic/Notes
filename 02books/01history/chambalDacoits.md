@@ -15,5 +15,5 @@ M.Z.Khan has done on lot of research on this topic
 
 ![Image result for ravines](assets/ravine.jpg)
 
-[Source](![Image result for ravines](http://worldlandforms.com/landforms/wp-content/uploads/2015/04/ravine.jpg))
+[Source](http://worldlandforms.com)
 
