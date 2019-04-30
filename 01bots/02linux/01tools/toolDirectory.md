@@ -1,3 +1,5 @@
+
+
 # Tools Directory
 
 A miscellaneous set of tools found somewhere on the interwebs
@@ -26,3 +28,6 @@ Fd seems to be a good replacement for find. It is faster and seems more user fri
 
 reset is a handy command that can be used to reset a stuck terminal. I used it when my terminal suddenly was showing nothing on typing. But one has to be careful though it seems to delete all the history on the session.
 
+## [trash-cli](https://github.com/andreafrancia/trash-cli)
+
+a utility to handle the trash can on your terminal. Has some additional utilities for removing trash files older than X number of days and listing all the files in trash
