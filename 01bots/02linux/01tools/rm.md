@@ -8,6 +8,14 @@
    alias rm='/bin/safe-rm
    ```
 
-   Also what you can do is 
+   Ok but we know it is just moving but what if we we want to delete a huge set of files. We cannot afford to move it to trash. In such cases there is a nifty hack that you can use which is preprending `\` to an alias i.e.
 
+   ```bash
+   # In this case bash will run the original rm and thus no moving to the trash dir
+   \rm test.txt
+   ```
    
+   
+   
+   
+

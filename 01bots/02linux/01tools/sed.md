@@ -21,3 +21,11 @@ You can use sed to add a header to add a header to piped input. This comes in ha
 {some set of operations}|sed -1i"headerline"
 ```
 
+## Convert spaces in a file to tabs
+
+You can convert one or more spaces in a file to tabs. This is very useful when processing some stdin and then converting it into a tsv file for viewing in a spreadsheet program
+
+```ba
+sed "s/ \+/\t/g"
+```
+

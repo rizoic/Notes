@@ -31,3 +31,11 @@ reset is a handy command that can be used to reset a stuck terminal. I used it w
 ## [trash-cli](https://github.com/andreafrancia/trash-cli)
 
 a utility to handle the trash can on your terminal. Has some additional utilities for removing trash files older than X number of days and listing all the files in trash
+
+## [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
+
+This is a very handy program to bind swtiching to apps to the ketboard. You can see an example of how to do this [here](https://askubuntu.com/a/234246)
+
+## [pdfgrep](https://pdfgrep.org/)
+
+This is a grep for pdfs. basically it wil lextract the text from pdfs and grep them for you. You could do this with pdf2text but its good to have a handy wrapper with some additonal functionalities thrown in.
