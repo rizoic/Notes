@@ -23,4 +23,12 @@
     # Draw borders around columns?
     set draw_borders true
     ```
+    
 
+3. Another adjustment you can do is by changing the alias with which ranger is launched. This ensures that when you exit ranger you are in the directrory that you were when naviaging. So lets say in start ranger in /home/user1 and then navigate to /homer/user1/documents/somedoc in ranger and then exit ranger. You are back to /homer/user1 in the terminal. If you dont want this then you can change your ranger alias as follows
+
+   ```bash
+   alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+   ```
+
+   

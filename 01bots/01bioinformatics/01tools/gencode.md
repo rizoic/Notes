@@ -24,3 +24,4 @@
 
 
 
+2. Gencode gets its non coding RNA annotations from - [Rfam](http://rfam.xfam.org/) and specially miRNA sequences from [mirBase](http://www.mirbase.org/). Then there are some non coding RNA pseudogenes which are predicted by the Ensemble pipeline.

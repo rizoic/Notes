@@ -38,3 +38,13 @@ ggplot2(aes(x = axis1, y = axis2)) + geom_point(color = factor1)
    What this is doing is breaking down age into 5 groups as per Trees. [Source](https://michaeltoth.me/a-detailed-guide-to-plotting-line-graphs-in-r-using-ggplot-geom_line.html)
 
    
+
+## Companion Packages
+
+### [Cowplot](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html)
+
+Cowplot is a handy themer for ggplot2. I myself personally dont like its output but it seems to be more cleaner and acceptable for publications
+
+1. If you want to change the axis line size once you have loaded cowplot you cannot do it the normal way i.e changing properties of `axis_line` in theme section you have to do it in the function `theme_cowplot` and change the attribute `line_size` in it. e.g `theme_cowplot(line_size = 0.8)`
+
+   
