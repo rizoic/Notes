@@ -87,3 +87,9 @@ clip3pAdapterMMp            0.1
 - [RIboTISH](https://github.com/zhpn1024/ribotish)
 
   Find TIS sites in aligned data and compare them.
+
+## Papers
+
+- [Ribosome profiling reveals the what, when, where and how of protein synthesis](https://www.nature.com/articles/nrm4069)
+
+  
