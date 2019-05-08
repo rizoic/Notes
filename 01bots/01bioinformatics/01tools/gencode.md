@@ -25,3 +25,8 @@
 
 
 2. Gencode gets its non coding RNA annotations from - [Rfam](http://rfam.xfam.org/) and specially miRNA sequences from [mirBase](http://www.mirbase.org/). Then there are some non coding RNA pseudogenes which are predicted by the Ensemble pipeline.
+3. In a gencode GTF file you will find besides gene/transcript/exon you will also see UTR, CDS, start,stop and selenocystine. The below given figure very clearly represents these elements
+
+![img](assets/dna-rna-protein.jpg)
+
+So UTR are present on both the sides. These are things which are part of the first and last exon and are present in the mRNA which has the poly A tail and thus also present in the RNA seq data that we get. These are for allowing ribosomal complexe to bind. Withing the exon1 you will find somewhere a start codons from there the CDS starts and it will continue till the last exon within which you will find a stop codon somewhere as you can see in the figure above. Then post the 3’UTR you have the poly A tail. `Selenocysine` is just an annotation for places where there is the 21st amino acid in case ever required.p

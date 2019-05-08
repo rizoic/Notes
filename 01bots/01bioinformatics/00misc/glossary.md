@@ -21,3 +21,7 @@ A cDNA sequence is derived from the transcript by reverse transcription, but in 
 
 ![File:Gene structure eukaryote 2 annotated.svg](assets/Gene_structure_eukaryote_2_annotated.svg.png)
 
+![img](assets/dna-rna-protein.jpg)
+
+[Source](http://carolguze.com/text/442-1-humangenome.shtml)
+
