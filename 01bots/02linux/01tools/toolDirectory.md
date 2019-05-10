@@ -34,7 +34,7 @@ a utility to handle the trash can on your terminal. Has some additional utilitie
 
 ## [wmctrl](http://tripie.sweb.cz/utils/wmctrl/)
 
-This is a very handy program to bind swtiching to apps to the ketboard. You can see an example of how to do this [here](https://askubuntu.com/a/234246)
+This is a very handy program to bind swtiching to apps to the ketboard. You can see an example of how to do this [here](https://askubuntu.com/a/234246). 
 
 ## [pdfgrep](https://pdfgrep.org/)
 
