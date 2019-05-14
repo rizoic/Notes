@@ -39,3 +39,7 @@ This is a very handy program to bind swtiching to apps to the ketboard. You can 
 ## [pdfgrep](https://pdfgrep.org/)
 
 This is a grep for pdfs. basically it wil lextract the text from pdfs and grep them for you. You could do this with pdf2text but its good to have a handy wrapper with some additonal functionalities thrown in.
+
+## [tabula](https://tabula.technology/)
+
+This is a jar tool that can extract tables from pdfs. It is gui based so that is not so good but can come in handy form those finiky tables. Otherwise it is a very good tool.
